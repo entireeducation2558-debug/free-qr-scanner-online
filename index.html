@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123b72">
+  <meta name="description" content="Free QR code scanner. Scan QR codes with your camera or upload an image, then copy the decoded result.">
+  <title>Free QR Code Scanner Online</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js" defer></script>
+  <script src="./script.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="./" aria-label="QR Scanner home">
+      <span class="brand-icon" aria-hidden="true">▦</span>
+      <span>QR<span class="brand-light">Scanner</span></span>
+    </a>
+    <nav class="topnav" aria-label="Main navigation">
+      <a href="./how-to-scan.html">How to use</a>
+      <a href="./about.html">About</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <section class="hero">
+      <div class="eyebrow"><span class="live-dot"></span> FREE ONLINE TOOL</div>
+      <h1>Scan any <span>QR Code</span></h1>
+      <p class="intro">Scan a QR code with your camera or upload an image to read its contents. The scanner processes the selected image in your browser.</p>
+    </section>
+
+    <section class="scanner-card" aria-labelledby="scanner-title">
+      <div class="tabs" role="tablist" aria-label="Choose scan method">
+        <button class="tab active" id="cameraTab" role="tab" aria-selected="true" type="button">▣ &nbsp; Scan with camera</button>
+        <button class="tab" id="uploadTab" role="tab" aria-selected="false" type="button">↑ &nbsp; Upload image</button>
+      </div>
+
+      <div class="panel" id="cameraPanel">
+        <h2 id="scanner-title">Point your camera at a QR code</h2>
+        <p class="muted">Keep the entire code inside the camera frame.</p>
+        <div id="reader" class="reader">
+          <div class="reader-placeholder" id="cameraPlaceholder">
+            <div class="camera-symbol">▣</div>
+            <p>Your camera preview will appear here</p>
+          </div>
+        </div>
+        <div class="button-row">
+          <button class="button primary" id="startButton" type="button">Start camera</button>
+          <button class="button secondary" id="stopButton" type="button" disabled>Stop camera</button>
+        </div>
+      </div>
+
+      <div class="panel hidden" id="uploadPanel">
+        <h2>Upload a QR code image</h2>
+        <p class="muted">Choose a clear image containing a QR code.</p>
+        <label class="dropzone" for="qrFile">
+          <span class="upload-icon">↑</span>
+          <strong>Choose an image</strong>
+          <span>Click to browse your device</span>
+          <input id="qrFile" type="file" accept="image/*">
+        </label>
+        <p class="file-name" id="fileName">No image selected</p>
+      </div>
+
+      <div id="status" class="status" role="status" aria-live="polite">Choose a scanning method to begin.</div>
+
+      <section class="result hidden" id="resultPanel" aria-labelledby="resultTitle">
+        <div class="result-heading">
+          <span class="success-icon">✓</span>
+          <div>
+            <h2 id="resultTitle">QR code detected</h2>
+            <p class="muted">Decoded content</p>
+          </div>
+        </div>
+        <textarea id="resultText" readonly rows="3" aria-label="QR code result"></textarea>
+        <div class="button-row result-actions">
+          <button class="button primary" id="copyButton" type="button">Copy result</button>
+          <a class="button secondary hidden" id="openLink" target="_blank" rel="noopener noreferrer">Open link ↗</a>
+          <button class="button secondary" id="clearButton" type="button">Clear</button>
+        </div>
+        <p class="safety-note">Check a link before opening it. QR codes can lead to unsafe or misleading websites.</p>
+      </section>
+    </section>
+
+    <section class="content-section">
+      <h2>How to scan a QR code</h2>
+      <ol>
+        <li>Choose <strong>Scan with camera</strong> and allow camera access, or choose <strong>Upload image</strong>.</li>
+        <li>For camera scanning, hold the QR code steady and keep it well lit.</li>
+        <li>When a result appears, review it before copying or opening any link.</li>
+      </ol>
+      <h2>What can a QR code contain?</h2>
+      <p>A QR code may contain a website address, plain text, contact details, Wi-Fi information, or other encoded data. This tool displays the decoded content it can read; it does not verify that the content or destination is safe.</p>
+      <h2>Privacy at a glance</h2>
+      <p>Camera access is used only after you press the start button and grant browser permission. Image decoding is performed in your browser using a third-party JavaScript library. This site’s code does not upload selected QR images to a server. Your browser and the library provider may have their own technical behavior and policies; read the full <a href="./privacy-policy.html">Privacy Policy</a>.</p>
+    </section>
+
+    <section class="features" aria-label="Features">
+      <article><span>01</span><h3>Camera scanning</h3><p>Read QR codes using a supported device camera and browser.</p></article>
+      <article><span>02</span><h3>Image scanning</h3><p>Decode QR codes from a supported image selected from your device.</p></article>
+      <article><span>03</span><h3>Review and copy</h3><p>Review the result before copying it or opening a web link.</p></article>
+    </section>
+    <footer>
+      <p>QR Scanner · A browser-based utility</p>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="./about.html">About Us</a>
+        <a href="./contact.html">Contact Us</a>
+        <a href="./privacy-policy.html">Privacy Policy</a>
+        <a href="./terms.html">Terms of Use</a>
+        <a href="./how-to-scan.html">How to Scan</a>
+      </nav>
+    </footer>
+  </main>
+</body>
+</html>
